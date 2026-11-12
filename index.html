@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tu Nombre · Perfil personal</title>
+  <meta name="description" content="Perfil personal para conocer gente nueva.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <header class="barra">
+    <a class="barra__marca" href="#inicio">Tu Nombre</a>
+    <nav class="barra__nav" aria-label="Secciones">
+      <a href="#sobre-mi">Sobre mí</a>
+      <a href="#intereses">Intereses</a>
+      <a href="#galeria">Galería</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <button class="tema" id="botonTema" type="button" aria-label="Cambiar a modo oscuro" aria-pressed="false">
+      <span class="tema__icono" aria-hidden="true"></span>
+    </button>
+  </header>
+
+  <main>
+
+    <!-- Presentación -->
+    <section class="inicio" id="inicio">
+      <h1 class="inicio__nombre">Hola, soy<br>Tu Nombre.</h1>
+      <p class="inicio__frase">Estudiante, curioso por naturaleza y siempre con ganas de conocer gente nueva.</p>
+      <button class="boton boton--principal" id="botonAmistad" type="button">Quiero ser tu amigo</button>
+    </section>
+
+    <!-- Sobre mí -->
+    <section class="seccion" id="sobre-mi" data-reveal>
+      <h2>Sobre mí</h2>
+      <div class="sobre">
+        <div class="sobre__foto" role="img" aria-label="Tu foto de perfil (reemplázala en el CSS o con una etiqueta img)"></div>
+        <div class="sobre__texto">
+          <p>Vivo en Bogotá y estoy aprendiendo a programar. Me gusta entender cómo funcionan las cosas y compartirlo con otros.</p>
+          <p>Busco amigos con quienes hablar de tecnología, salir a caminar o simplemente tomar algo y conversar.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Intereses -->
+    <section class="seccion" id="intereses" data-reveal>
+      <h2>Intereses y hobbies</h2>
+      <ul class="chips">
+        <li>Programación</li>
+        <li>Videojuegos</li>
+        <li>Música</li>
+        <li>Películas</li>
+        <li>Caminatas</li>
+        <li>Café</li>
+        <li>Fotografía</li>
+      </ul>
+      <div class="dato">
+        <p class="dato__texto" id="datoTexto" aria-live="polite"></p>
+        <button class="boton boton--suave" id="botonDato" type="button">Otra frase</button>
+      </div>
+    </section>
+
+    <!-- Galería -->
+    <section class="seccion" id="galeria" data-reveal>
+      <h2>Galería</h2>
+      <!-- Para usar fotos reales: cambia cada <div class="foto"> por <img class="foto" src="img/tu-foto.jpg" alt="Descripción"> -->
+      <div class="galeria">
+        <figure><div class="foto foto--a" role="img" aria-label="Foto 1"></div><figcaption>Mi lugar favorito</figcaption></figure>
+        <figure><div class="foto foto--b" role="img" aria-label="Foto 2"></div><figcaption>Un día de caminata</figcaption></figure>
+        <figure><div class="foto foto--c" role="img" aria-label="Foto 3"></div><figcaption>Con amigos</figcaption></figure>
+        <figure><div class="foto foto--d" role="img" aria-label="Foto 4"></div><figcaption>Mi escritorio</figcaption></figure>
+      </div>
+    </section>
+
+    <!-- Contacto -->
+    <section class="seccion" id="contacto" data-reveal>
+      <h2>Hablemos</h2>
+      <ul class="enlaces">
+        <li><a href="https://instagram.com/tu_usuario" target="_blank" rel="noopener">Instagram <span>@tu_usuario</span></a></li>
+        <li><a href="https://wa.me/570000000000" target="_blank" rel="noopener">WhatsApp <span>+57 000 000 0000</span></a></li>
+        <li><a href="mailto:tucorreo@ejemplo.com">Correo <span>tucorreo@ejemplo.com</span></a></li>
+        <li><a href="https://github.com/tu_usuario" target="_blank" rel="noopener">GitHub <span>tu_usuario</span></a></li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer class="pie">
+    <p>Hecho con HTML, CSS y JavaScript.</p>
+  </footer>
+
+  <!-- Ventana del botón de amistad -->
+  <dialog class="modal" id="modalAmistad" aria-labelledby="modalTitulo">
+    <form method="dialog" class="modal__form" id="formAmistad">
+      <h2 id="modalTitulo">Cuéntame quién eres</h2>
+      <label for="campoNombre">Tu nombre</label>
+      <input id="campoNombre" name="nombre" type="text" autocomplete="given-name" required>
+      <label for="campoMensaje">Un mensaje corto</label>
+      <textarea id="campoMensaje" name="mensaje" rows="3" placeholder="Me gusta el cine y quiero conocer gente nueva."></textarea>
+      <div class="modal__acciones">
+        <button class="boton boton--suave" type="button" id="cancelarAmistad">Cancelar</button>
+        <button class="boton boton--principal" type="submit">Enviar mensaje</button>
+      </div>
+    </form>
+    <div class="modal__gracias" id="modalGracias" hidden>
+      <h2 id="graciasTitulo"></h2>
+      <p>Tu mensaje quedó guardado en este prototipo. Cuando tengas un servidor, aquí se enviará de verdad.</p>
+      <button class="boton boton--principal" type="button" id="cerrarGracias">Cerrar</button>
+    </div>
+  </dialog>
+
+</body>
+</html>
